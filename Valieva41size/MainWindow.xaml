@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Valieva41size"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Valieva41" Height="450" Width="800" FontFamily="Comic Sans MS" FontSize="40" Icon="icon.ico">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="/logo.png" HorizontalAlignment="Left" />
+
         
+        <TextBlock Text="41 размер" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
+        <Button Content="Назад" Name="BtnBack" HorizontalAlignment="Right" Click="BtnBack_Click"></Button>
     </Grid>
 </Window>
