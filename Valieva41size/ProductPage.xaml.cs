@@ -20,14 +20,44 @@ namespace Valieva41size
     /// </summary>
     public partial class ProductPage : Page
     {
+        private User _user;
+
         int CountRecords;
         int CurrrentRecords;
 
         List <Product> CurrentRecordsList = new List <Product> ();
         List<Product> TableList;
+
         public ProductPage()
         {
+
+            InitializeComponent ();
+            var currentProducts = Valieva41Entities.GetContext().Product.ToList();
+            ProductListView.ItemsSource = currentProducts;
+
+            ComboType.SelectedIndex = 0;
+
+            Wrp.Visibility = Visibility.Hidden;
+        }
+
+
+        public ProductPage(User user)
+        {
             InitializeComponent();
+            _user = user;   
+
+            FIOTB.Text = user.UserSurname + " " + user.UserName + " " + user.UserPatronymic;
+            switch (user.UserRole)
+            {
+                case 1:
+                    RoleTB.Text = "Клиент"; break;
+                case 2:
+                    RoleTB.Text = "Менеджер"; break;
+                case 3:
+                    RoleTB.Text = "Администратор"; break;
+            }
+
+
             var currentProducts = Valieva41Entities.GetContext().Product.ToList();
             ProductListView.ItemsSource = currentProducts;
 

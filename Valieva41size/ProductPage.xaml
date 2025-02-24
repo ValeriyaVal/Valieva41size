@@ -11,10 +11,21 @@
     <Grid>
         
         <Grid.RowDefinitions>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition Height="80"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <WrapPanel>
+        <StackPanel Name="Wrp" Orientation="Vertical" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Вы авторизованы как " FontSize="20"></TextBlock>
+                <TextBlock Name="FIOTB" FontSize="20"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Роль: " FontSize="20"></TextBlock>
+                <TextBlock Name="RoleTB" FontSize="20"></TextBlock>
+            </StackPanel>
+        </StackPanel>
+        <WrapPanel Grid.Row="1">
             <StackPanel Margin="5" Orientation="Horizontal" Height="25">
             <TextBlock Text="кол-во " FontSize="20"></TextBlock>
                 <TextBlock Name="TBcount" FontSize="20"></TextBlock>
@@ -48,7 +59,7 @@
         </WrapPanel>
         
         
-        <ListView Name="ProductListView" Grid.Row="1">
+        <ListView Name="ProductListView" Grid.Row="2">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
